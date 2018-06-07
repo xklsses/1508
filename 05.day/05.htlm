@@ -1,0 +1,18 @@
+w = 2 
+q = 3 
+#写出c等于多少
+c = w+q 
+print(c)
+x = q-w
+print(x)
+g = w*q
+print(g)
+v = w/q
+print(v)
+b = w%q
+print(b)
+n = w//q
+print(n)
+m = w**q
+print(m)
+

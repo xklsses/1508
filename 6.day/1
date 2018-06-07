@@ -1,0 +1,7 @@
+name = input("请输入姓名"）
+sex = input ("性别")
+age = int(input("年龄"))
+weight = float(input("体重"))
+height = float(input("身高"))
+
+print("姓名")

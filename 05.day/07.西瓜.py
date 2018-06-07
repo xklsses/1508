@@ -1,0 +1,5 @@
+xi=(3.8)
+gua=(34)
+jiage=(xi*gua)
+print('你需要支付多少钱')
+print(xi*gua)
