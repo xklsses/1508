@@ -1,0 +1,6 @@
+a =int(input("我有多少钱"))
+b = int(input("我去走多少钱"))
+print('我有多少钱%d'%a)
+print('我取走多少钱%d'%b)
+m =int(a)-int(b)
+print("我现在剩余多少钱%d"%m)
