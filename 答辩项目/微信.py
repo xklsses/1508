@@ -1,0 +1,9 @@
+print('欢迎来到微信'.center(50,'*'))
+print('请先注册微信'.center(50,' '))
+a = input('请输入微信号:')
+b = input('请输入微信密码:')
+if len(a) == 11 and a.startswith('1')==True and len(b)>6:
+	print('注册成功')
+else :
+	print('注册失败')
+
