@@ -1,20 +1,36 @@
-import random #插入随机数 
-import time #插入随机时间
-print('欢迎使用微信'.center(50,'*'))
+import random
+import time           #虽然不是那么好看,但还是凑合用吧--o-o--                                     
+def tb():
+	print('                   +++++++                    ')
+	print('                +++++++++++++                 ')
+	print('               ++++++++++++++++                ')
+	print('              ++++o+++++++o+++++               ')
+	print('              +++++++++++++--------              ')
+	print('               +++++++++++----------               ')
+	print('                +++++++++---o----o---               ')
+	print('                 ++++++++------------                ')
+	print('                 +++      ---------                   ')
+	print('                 ++            --              ')
+	print('                +                -              ')
+	print('                                        ')
+	print('正在打开微信请稍等...'.center(50,'*'))
+	time.sleep(3)
+tb()
+print('欢迎使用微信'.center(50,'-'))
 print('请先注册你的微信号'.center(50,' '))
 while True:
 	a = input('请输入你要注册的微信号:')
 	b = input('请输入你要注册微信号的密码:')
-	#判断是否输入正确
 	if len(a) == 11 and a.startswith('1') == True and len(b)>=6:
 		print('输入正确')
-		break #如果输入正确,结束本次循环
+		break
+		continue
 	else:
 		print('输入有误,请重新输入')
 
 print('正在给你发送验证码...'.center(50,' '))
 c = random.randint(1000,9999)
-time.sleep(3) 
+time.sleep(3)
 print('你的验证码为%d'%c)
 while True:
 	f =int(input('请输入你的验证码:'))
@@ -33,82 +49,80 @@ while True:
 	else :
 		print('登录失败,请重新登录')
 print('*'*50)
-#注册登录完成,进入选择功能		
-list=[] #定义空列表
-def gn(): #功能函数
+		
+list=[]
+def gn():
 	print('1:添加好友'.center(50,' '))
 	print('2:查找好友'.center(50,' '))
 	print('3:修改好友'.center(50,' '))
 	print('4:删除好友'.center(50,' '))
 	print('5:显示全部好友及信息'.center(50,' '))
 	print('6:退出系统'.center(50,' '))
-def xz():#选择功能
+def xz():
 	while True:
 		a = int(input('请选择功能'))
 		if a == 1:
-			add() #调用添加函数
-			print('-'*50)
+			add()
+			print('.'*50)
 		if a == 2:
-			find() #调用查找函数
-			print('-'*50)
+			find()
+			print('.'*50)
 		if a == 3:
-			xg() #调用修改函数
-			print('-'*50)
+			xg()
+			print('.'*50)
 		if a == 4:
-			sc() #调用删除函数
-			print('-'*50)
+			sc()
+			print('.'*50)
 		if a == 5:
-			xs() #调用显示全部内容函数
-			print('-'*50)
+			xs()
+			print('.'*50)
 		if a == 6:
 			print('退出成功,欢迎下次使用'.center(50,'*'))
-			break 
+			break
 def add():#添加
 	l = {}
 	while True:
 		b = input('请输入要添加好友姓名')
-		#判断添加名字是否符合以下条件,符合结束循环,否则重新输入
 		if len(b) <=4: 
 			break
 		else:
 			print('输入有误,请重新输入') 
-	while True:	
+	while True:
 		c = input('请输入要添加好友的手机号')
-		#判断添加手机号是否符合以下条件,符合结束循环,否则重新输入
 		if len(c) ==11 and c.startswith('1'):
 			break
 		else:
 			print('输入有误,请重新输入')
 	while True:
 		d = input('请输入要添加好友的地址')
-		#判断添加地址是否符合以下条件,符合结束循环,否则重新输入
 		if len(d) <=6:
 			break
 		else:
 			print('输入有误,请重新输入')
-#把内容添加到字典
+
 	l['b']=b
 	l['c']=c
 	l['d']=d
-	list.append(l) #添加到列表
+	list.append(l)
 	print('添加成功')
+
 
 def find():#查找
 	b1 = input('请输入你要查找的姓名')
 	flag = False  #假设里面没有要查找的名字
-	for i in list: #把字典从列表里遍历出来
-		if i['b'] == b1: #如果我要查找的名字在字典里,打印内容
-			print('姓名:%s\n微信号:%s\n地址:%s'%(i['b'],i['c'],i['d']))
+	for l in list:
+		if l['b'] == b1:
+			print('姓名:%s\n微信号:%s\n地址:%s'%(l['b'],l['c'],l['d']))
 			flag = True	#表示找到了
 			break
-	if flag == False: 
+	if flag == False:
 		print('没有你要查找的姓名')
 
 
 
 def xg():#修改
 	b2 = input('请输入要修改的名字')
-	flag = False #假设里面没有要修改的名字
+	flag = False #假设里面没有要查找的名字
 	for i in list:
 		while True:
 			if i['b'] == b2:
@@ -161,5 +175,5 @@ def xs():#显示所有内容
 
 
 		
-gn() #调用功能函数
-xz() #调用选则功能函数	
+gn()
+xz()	

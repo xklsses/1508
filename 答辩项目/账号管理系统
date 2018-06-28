@@ -16,10 +16,11 @@ def add_new_card_infor():#添加信息
     new_name = input("请输入新的名字：")    #信息的录入
     new_qq = int(input("请输入新的QQ："))
     new_weixin = int(input("请输入新的微信："))
-    new_addr = input("请输入新的住址:")
+    new_addr =input("请输入新的住址:")
 
-    new_infor = {}                          #定义一个新的字典，用来存储一个新的名片
-    new_infor['name'] = new_name            #信息的录入
+    new_infor = {} #定义一个新的字典，用来存储一个新的名片
+    print('添加成功')
+    new_infor['name'] = new_name           #把信息的导入到字典
     new_infor['qq'] = new_qq
     new_infor['weixin'] = new_weixin
     new_infor['addr'] = new_addr
@@ -27,10 +28,8 @@ def add_new_card_infor():#添加信息
     #将一个字典，添加到列表中
     card_infors.append(new_infor)           #用append()函数在列表中增加一个字典元素
 
-    #print(card_infors)#for test
 
-def dele_card_infor():
-    """用来删除一个名片"""
+def dele_card_infor():#删除信息
 
     dele_name = input("请输入要删除的姓名：") #输入要删除的那个人的姓名
     find_flag = 0                               #默认表示没有找到
@@ -40,13 +39,13 @@ def dele_card_infor():
             card_infors.remove(temp)
 
 
-            print("删除成功！")                  #用del函数删除该列表中的一个字典元素，如果重名只能删第一个
+            print("删除成功！") 
+      
             break
 
     if find_flag == 0:                          
         print("没有您要删除人的信息....")
-def modify_card_infor():
-    """用来修改一个名片"""
+def modify_card_infor():#修改信息
 
     modify_name = input("请输入要修改的人的姓名：") #输入要修改的那个人的姓名
     find_flag = 0                                   #默认表示没有找到
@@ -84,28 +83,24 @@ def modify_card_infor():
                     break
             break
 
-def find_card_infor():
-    """用来查询一个名片"""
-
+def find_card_infor():#查询信息
 
     find_name = input("请输入要查找的姓名：")   #按姓名查找
     find_flag = 0                                   #默认表示没有找到
     print("您要查找的人的信息为：")                    #打印对应姓名的信息
-    print("姓名\t\tQQ\t\t\t微信\t\t住址")
     for temp in card_infors:
         if find_name == temp["name"]:
-            print("%-12s%-12s%-12s%s"%(temp['name'],temp['qq'],temp['weixin'],temp['addr']))#哎呀呀我本来想用\t横向制表符呢，但是效果却不是我想的那样，所以只能用这种左对齐的方式了
+            print("名字:%s\nQQ:%d\n微信:%d\n地址%s"%(temp['name'],temp['qq'],temp['weixin'],temp['addr'])) #找到信息并打印出来
             find_flag = 1                           #表示找到了
 
     if find_flag == 0:                              #判断是否找到了
-        print("没有找到这个人哦╮(￣▽￣)╭....")
+        print("没有找到你想知道的的信息╮(￣▽￣)╭....")
 
-def show_all_infor():
-    """显示所有的名片信息"""
+def show_all_infor():#打印所有信息
 
-    print("姓名\t\tQQ\t\t\t微信\t\t住址")         #打印所有人的信息
+    print("姓名\t\tQQ\t\t微信\t\t住址")         #打印所有人的信息
     for temp in card_infors:
-        print("%-12s%-12s%-12s%s"%(temp['name'],temp['qq'],temp['weixin'],temp['addr']))
+        print("%s\t%d\t%d\t%s\t"%(temp['name'],temp['qq'],temp['weixin'],temp['addr']))
 def main():
     """完成对整个程序的控制"""
     print_menu()                                    #1.打印功能提示
@@ -125,6 +120,7 @@ def main():
         elif num==5:
             show_all_infor()
         elif num==6:
+            print("退出成功")
             break
         else:
             print("输入有误，请重新输入")
